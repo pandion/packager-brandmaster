@@ -4,15 +4,153 @@
   <description></description>
   <keepDependencies>false</keepDependencies>
   <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>source_type</name>
+          <description>method used to import custom source code</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>official</string>
+              <string>zip</string>
+              <string>git</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>source_official_tag</name>
+          <description>the git tag name on the official Pandion repository</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.FileParameterDefinition>
+          <name>Client.zip</name>
+          <description>Client.zip</description>
+        </hudson.model.FileParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>source_git_url</name>
+          <description>the url of the git repository</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.FileParameterDefinition>
+          <name>brand.xml</name>
+          <description>custom_brand_xml</description>
+        </hudson.model.FileParameterDefinition>
+        <hudson.model.FileParameterDefinition>
+          <name>default.xml</name>
+          <description>custom_default_xml</description>
+        </hudson.model.FileParameterDefinition>
+        <hudson.model.FileParameterDefinition>
+          <name>logo_about.png</name>
+          <description>logo_about</description>
+        </hudson.model.FileParameterDefinition>
+        <hudson.model.FileParameterDefinition>
+          <name>logo_ico.ico</name>
+          <description>logo_ico</description>
+        </hudson.model.FileParameterDefinition>
+        <hudson.model.FileParameterDefinition>
+          <name>logo_png.png</name>
+          <description>logo_png</description>
+        </hudson.model.FileParameterDefinition>
+        <hudson.model.FileParameterDefinition>
+          <name>logo_signin.png</name>
+          <description>logo_signin</description>
+        </hudson.model.FileParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>version_major</name>
+          <description>X.y.z</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>version_minor</name>
+          <description>x.Y.z</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>version_build</name>
+          <description>x.y.Z</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>name</name>
+          <description>display name of the brand</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>name_safe</name>
+          <description>name used for files and directories, cannot include \ / : * ? &quot; &lt; &gt; |</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>homepage_url</name>
+          <description>the url of the application homepage</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>company</name>
+          <description>the name of the application owner organization</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>guid</name>
+          <description>unique identifier used by Windows Installer for upgrades, default for Pandion IM is {9F661F94-F17F-4F5C-B1C8-2955C85C8FE9}</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>support_url</name>
+          <description>the url of an online support resource like documentation or user training guide</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>info_url</name>
+          <description>the url of the application homepage</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
     <hudson.plugins.googlecode.GoogleCodeProjectProperty/>
   </properties>
-  <scm class="hudson.scm.NullSCM"/>
+  <scm class="hudson.plugins.git.GitSCM">
+    <configVersion>1</configVersion>
+    <remoteRepositories>
+      <org.spearce.jgit.transport.RemoteConfig>
+        <string>origin</string>
+        <int>5</int>
+        <string>fetch</string>
+        <string>+refs/heads/*:refs/remotes/origin/*</string>
+        <string>receivepack</string>
+        <string>git-upload-pack</string>
+        <string>uploadpack</string>
+        <string>git-upload-pack</string>
+        <string>url</string>
+        <string>http://github.com/pandion/packager-builder</string>
+        <string>tagopt</string>
+        <string></string>
+      </org.spearce.jgit.transport.RemoteConfig>
+    </remoteRepositories>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>**</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <mergeOptions/>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <authorOrCommitter>false</authorOrCommitter>
+    <clean>false</clean>
+    <wipeOutWorkspace>false</wipeOutWorkspace>
+    <buildChooser class="hudson.plugins.git.util.DefaultBuildChooser"/>
+    <gitTool>Default</gitTool>
+    <submoduleCfg class="list"/>
+  </scm>
   <canRoam>true</canRoam>
   <disabled>false</disabled>
   <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
   <triggers class="vector"/>
   <concurrentBuild>false</concurrentBuild>
-  <builders/>
+  <builders>
+    <hudson.tasks.BatchFile>
+      <command>build_packager.bat</command>
+    </hudson.tasks.BatchFile>
+  </builders>
   <publishers/>
   <buildWrappers/>
 </project>
