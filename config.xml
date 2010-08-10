@@ -22,6 +22,11 @@
           <description>the git tag name on the official Pandion repository</description>
           <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>source_official_tag</name>
+          <description>the version of Pandion IM to use, as specified by a tag in the official Git repository</description>
+          <defaultValue>HEAD</defaultValue>
+        </hudson.model.StringParameterDefinition>
         <hudson.model.FileParameterDefinition>
           <name>Client.zip</name>
           <description>Client.zip</description>
@@ -122,7 +127,7 @@
         <string>uploadpack</string>
         <string>git-upload-pack</string>
         <string>url</string>
-        <string>http://github.com/pandion/packager-builder</string>
+        <string>git://github.com/pandion/packager-builder.git</string>
         <string>tagopt</string>
         <string></string>
       </org.spearce.jgit.transport.RemoteConfig>
