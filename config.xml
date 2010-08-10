@@ -92,7 +92,7 @@
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
           <name>guid</name>
-          <description>unique identifier used by Windows Installer for upgrades, default for Pandion IM is {9F661F94-F17F-4F5C-B1C8-2955C85C8FE9}</description>
+          <description>unique identifier used by Windows Installer for upgrades, default for Pandion IM is 9F661F94-F17F-4F5C-B1C8-2955C85C8FE9</description>
           <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
         <hudson.model.StringParameterDefinition>
@@ -148,7 +148,8 @@
   <concurrentBuild>false</concurrentBuild>
   <builders>
     <hudson.tasks.BatchFile>
-      <command>build_packager.bat</command>
+      <command>CALL build_packager.bat
+</command>
     </hudson.tasks.BatchFile>
   </builders>
   <publishers>
