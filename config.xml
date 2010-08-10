@@ -44,11 +44,11 @@
           <description>logo_about</description>
         </hudson.model.FileParameterDefinition>
         <hudson.model.FileParameterDefinition>
-          <name>logo_ico.ico</name>
+          <name>logo.ico</name>
           <description>logo_ico</description>
         </hudson.model.FileParameterDefinition>
         <hudson.model.FileParameterDefinition>
-          <name>logo_png.png</name>
+          <name>logo.png</name>
           <description>logo_png</description>
         </hudson.model.FileParameterDefinition>
         <hudson.model.FileParameterDefinition>
