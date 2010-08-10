@@ -22,11 +22,6 @@
           <description>the git tag name on the official Pandion repository</description>
           <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
-        <hudson.model.StringParameterDefinition>
-          <name>source_official_tag</name>
-          <description>the version of Pandion IM to use, as specified by a tag in the official Git repository</description>
-          <defaultValue>HEAD</defaultValue>
-        </hudson.model.StringParameterDefinition>
         <hudson.model.FileParameterDefinition>
           <name>Client.zip</name>
           <description>Client.zip</description>
