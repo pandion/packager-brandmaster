@@ -6,6 +6,11 @@
   <properties>
     <hudson.model.ParametersDefinitionProperty>
       <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>packager_token</name>
+          <description>unique ID matching the Packager/CakePHP job</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
         <hudson.model.ChoiceParameterDefinition>
           <name>source_type</name>
           <description>method used to import custom source code</description>
