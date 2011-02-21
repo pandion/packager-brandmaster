@@ -11,6 +11,11 @@
           <description>unique ID matching the Packager/CakePHP job</description>
           <defaultValue></defaultValue>
         </hudson.model.StringParameterDefinition>
+        <hudson.model.StringParameterDefinition>
+          <name>packager_url</name>
+          <description>HTTP URL of the Packager service to make build notification callbacks. Eg. http://packager.pandion.im/</description>
+          <defaultValue></defaultValue>
+        </hudson.model.StringParameterDefinition>
         <hudson.model.ChoiceParameterDefinition>
           <name>source_type</name>
           <description>method used to import custom source code</description>
